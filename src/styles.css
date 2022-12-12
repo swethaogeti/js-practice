@@ -1,3 +1,18 @@
 body {
   font-family: sans-serif;
 }
+
+.container {
+  display: flex;
+  outline: 1px solid black;
+  width: 200px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.container > p > .btn {
+  display: none;
+}
+.container > p:hover > .btn {
+  display: inline;
+}
