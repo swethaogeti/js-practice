@@ -23,3 +23,11 @@ const objTwo = {
 const objOneCopy = objOne;
 console.log(objOne === objOne);
 console;
+
+//how to invoke function inside array
+
+const myArray = [
+  (function logger() {
+    console.log("hello");
+  })()
+];

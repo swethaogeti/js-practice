@@ -16,3 +16,13 @@ body {
 .container > p:hover > .btn {
   display: inline;
 }
+
+.atag {
+  color: green;
+}
+.atag:hover {
+  color: blue;
+}
+.atag:visited {
+  color: red;
+}
