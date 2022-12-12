@@ -31,3 +31,67 @@ const myArray = [
     console.log("hello");
   })()
 ];
+
+//explain hoisting with example
+hoistedVariable = 3;
+console.log(hoistedVariable);
+let hoistedVariable;
+
+hoistedFunction();
+function hoistedFunction() {
+  console.log("sweety");
+}
+
+function doSomething() {
+  x = 33;
+  console.log(x);
+  var x;
+}
+
+doSomething();
+//variable initializations are not hoisted
+var x;
+console.log(x);
+x = 23;
+
+//call apply and bind
+
+function sayHello(say) {
+  console.log(this.name, say);
+}
+
+const obj = {
+  name: "sweety"
+};
+
+sayHello.call(obj, "hey");
+sayHello.apply(obj, ["mady"]);
+const ans = sayHello.bind(obj, "rosy");
+console.log(ans());
+
+sayHello.call(obj);
+const obj1 = {
+  name: "swetha",
+  sayHi() {
+    console.log("hi", this.name);
+  }
+};
+
+const obj2 = {
+  name: "rocky"
+};
+obj1.sayHi.call(obj2);
+
+var person = {
+  firstName: "Hari",
+  sayHi: function () {
+    console.log("Hi " + this.firstName);
+  },
+  greet: {
+    sayHello: function () {
+      console.log("Hello " + this.firstName); // Evaluates to Hello undefined as "this" keyword is undefined here, the closest parent object greet does not have a firstName attribute
+    }
+  }
+};
+person.sayHi();
+person.greet.sayHello.call(person);
