@@ -21,25 +21,25 @@ const objTwo = {
 };
 
 const objOneCopy = objOne;
-console.log(objOne === objOne);
+// console.log(objOne === objOne);
 
 //how to invoke function inside array
 
-const myArray = [
-  (function logger() {
-    console.log("hello");
-  })()
-];
+// const myArray = [
+//   (function logger() {
+//     console.log("hello");
+//   })()
+// ];
 
 //explain hoisting with example
-hoistedVariable = 3;
-console.log(hoistedVariable);
-let hoistedVariable;
+// hoistedVariable = 3;
+// console.log(hoistedVariable);
+// let hoistedVariable;
 
-hoistedFunction();
-function hoistedFunction() {
-  console.log("sweety");
-}
+// hoistedFunction();
+// function hoistedFunction() {
+//   console.log("sweety");
+// }
 
 function doSomething() {
   x = 33;
@@ -47,10 +47,10 @@ function doSomething() {
   var x;
 }
 
-doSomething();
+// doSomething();
 //variable initializations are not hoisted
 var x;
-console.log(x);
+// console.log(x);
 x = 23;
 
 //call apply and bind
@@ -63,12 +63,12 @@ const obj = {
   name: "sweety"
 };
 
-sayHello.call(obj, "hey");
-sayHello.apply(obj, ["mady"]);
+// sayHello.call(obj, "hey");
+// sayHello.apply(obj, ["mady"]);
 const ans = sayHello.bind(obj, "rosy");
-console.log(ans());
+// console.log(ans());
 
-sayHello.call(obj);
+// sayHello.call(obj);
 const obj1 = {
   name: "swetha",
   sayHi() {
@@ -79,7 +79,7 @@ const obj1 = {
 const obj2 = {
   name: "rocky"
 };
-obj1.sayHi.call(obj2);
+// obj1.sayHi.call(obj2);
 
 var person = {
   firstName: "Hari",
@@ -92,8 +92,8 @@ var person = {
     }
   }
 };
-person.sayHi();
-person.greet.sayHello.call(person);
+// person.sayHi();
+// person.greet.sayHello.call(person);
 
 //mock-10
 //Is there a way to get all the values of an object directly in an array? Answer: Object.values()
@@ -113,7 +113,7 @@ function captalizeFirstLetter(str) {
 }
 
 const ans1 = captalizeFirstLetter("sweety");
-console.log(ans1);
+// console.log(ans1);
 
 //try catch
 
@@ -144,16 +144,16 @@ console.log(ans1);
 //   }
 // })
 
-let json = '{"age":30}';
-try {
-  let user = JSON.parse(json);
-  if (!user.name) {
-    throw new SyntaxError("incompeete data :no more");
-  }
-  console.log(user.name);
-} catch (err) {
-  console.log("JSON ERROR" + err.message);
-}
+// let json = '{"age":30}';
+// try {
+//   let user = JSON.parse(json);
+//   if (!user.name) {
+//     throw new SyntaxError("incompeete data :no more");
+//   }
+//   console.log(user.name);
+// } catch (err) {
+//   console.log("JSON ERROR" + err.message);
+// }
 
 // try {
 //   alert("try");
@@ -174,15 +174,15 @@ const promise2 = new Promise((resolve, reject) => {
   setTimeout(resolve, 100, "two");
 });
 
-Promise.race([promise1, promise2]).then((value) => {
-  console.log(value);
-});
+// Promise.race([promise1, promise2]).then((value) => {
+//   console.log(value);
+// });
 
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("foo");
-  }, 500);
-});
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("foo");
+//   }, 500);
+// });
 // promise.then((data) => console.log(data));
 
 //3 ways to copy objects in javascript
@@ -196,18 +196,24 @@ const source = {
 };
 const target4 = copyObject(source);
 target4.c.d = 2331;
-console.log(source, "deep copy");
+// console.log(source, "deep copy");
 function copyObject(source) {
   return JSON.parse(JSON.stringify(source));
 }
 const target = { ...source };
 // target.c.d=90
-console.log(source);
+// console.log(source);
 const target1 = Object.assign({}, source);
 // target1.c.d=333
 
-console.log(source);
+// console.log(source);
 
 const target3 = JSON.parse(JSON.stringify(source));
 target3.c.d = 444;
-console.log(source);
+// console.log(source);
+
+//10. Given an array of objects, print them one by one after a delay of 4 secs.
+let arr = [{ x: 2 }, { x: 3 }, { x: 4 }];
+for (let obj in arr) {
+  setTimeout(() => console.log(`arr`, arr[obj]), 1000 * obj);
+}
