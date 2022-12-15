@@ -183,4 +183,31 @@ const promise = new Promise((resolve, reject) => {
     resolve("foo");
   }, 500);
 });
-promise.then((data) => console.log(data));
+// promise.then((data) => console.log(data));
+
+//3 ways to copy objects in javascript
+
+const source = {
+  a: 10,
+  b: 20,
+  c: {
+    d: 30
+  }
+};
+const target4 = copyObject(source);
+target4.c.d = 2331;
+console.log(source, "deep copy");
+function copyObject(source) {
+  return JSON.parse(JSON.stringify(source));
+}
+const target = { ...source };
+// target.c.d=90
+console.log(source);
+const target1 = Object.assign({}, source);
+// target1.c.d=333
+
+console.log(source);
+
+const target3 = JSON.parse(JSON.stringify(source));
+target3.c.d = 444;
+console.log(source);
