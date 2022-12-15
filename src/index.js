@@ -22,7 +22,6 @@ const objTwo = {
 
 const objOneCopy = objOne;
 console.log(objOne === objOne);
-console;
 
 //how to invoke function inside array
 
@@ -95,3 +94,93 @@ var person = {
 };
 person.sayHi();
 person.greet.sayHello.call(person);
+
+//mock-10
+//Is there a way to get all the values of an object directly in an array? Answer: Object.values()
+const obj3 = {
+  firstName: "sweety",
+  lastName: "smily",
+  age: 22
+};
+
+// console.log(Object.values(obj3))
+// console.log(Object.entries(obj3))
+
+//write a program to capitalize first letter of a given string
+
+function captalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+const ans1 = captalizeFirstLetter("sweety");
+console.log(ans1);
+
+//try catch
+
+// try{
+//   console.log('hi there')
+//   lalal;
+// }catch(err){
+//   console.log('err occured')
+
+// }finally{
+//   console.log('enter the finally')
+// }
+
+// try{
+//   setTimeout(function(){
+//     nosunchVariable;
+//   },1000);
+// }catch(err){
+//   console.log('errpr')
+// }
+
+// setTimeout(function (){
+//   try{
+//     nosunchVariable;
+
+//   }catch(err){
+//     console.log('erro is caught here')
+//   }
+// })
+
+let json = '{"age":30}';
+try {
+  let user = JSON.parse(json);
+  if (!user.name) {
+    throw new SyntaxError("incompeete data :no more");
+  }
+  console.log(user.name);
+} catch (err) {
+  console.log("JSON ERROR" + err.message);
+}
+
+// try {
+//   alert("try");
+//   if (confirm("make an error")) bad_mode();
+// } catch (err) {
+//   console.log("cathc");
+// } finally {
+//   console.log("finally");
+// }
+
+//promise.race
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 500, "one");
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, "two");
+});
+
+Promise.race([promise1, promise2]).then((value) => {
+  console.log(value);
+});
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("foo");
+  }, 500);
+});
+promise.then((data) => console.log(data));
