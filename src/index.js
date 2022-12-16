@@ -213,7 +213,20 @@ target3.c.d = 444;
 // console.log(source);
 
 //10. Given an array of objects, print them one by one after a delay of 4 secs.
-let arr = [{ x: 2 }, { x: 3 }, { x: 4 }];
-for (let obj in arr) {
-  setTimeout(() => console.log(`arr`, arr[obj]), 1000 * obj);
+// let arr = [{ x: 2 }, { x: 3 }, { x: 4 }];
+// for (let obj in arr) {
+//   setTimeout(() => console.log(`arr`, arr[obj]), 1000 * obj);
+// }
+
+//print 1,2,3 with delay of 1,2,3 second
+
+// for(var i=1;i<4;i++){
+//   setTimeout(()=>console.log(i),i*2000)
+// }
+
+function printArray(...arr) {
+  for (let i = 0; i < arr.length; i++) {
+    setTimeout(() => console.log(arr[i]), i * 1000);
+  }
 }
+printArray(1, 2, 3, 4, 5);
