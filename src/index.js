@@ -88,7 +88,9 @@ var person = {
   },
   greet: {
     sayHello: function () {
-      console.log("Hello " + this.firstName); // Evaluates to Hello undefined as "this" keyword is undefined here, the closest parent object greet does not have a firstName attribute
+      console.log("Hello " + this.firstName); // Evaluates to Hello undefined
+      //as "this" keyword is undefined here,
+      //the closest parent object greet does not have a firstName attribute
     }
   }
 };
