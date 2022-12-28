@@ -14,10 +14,21 @@ const myDebounce = (callback, delay) => {
     }, delay);
   };
 };
-const debounceCount = myDebounce(() => {
+
+const myThrottle = (callback, delay) => {
+  let last = 0;
+  return function (...args) {
+    let now = new Date().getTime();
+    if (now - last < delay) return;
+    last = now;
+    return callback(...args);
+  };
+};
+
+const myThrottleCount = myThrottle(() => {
   count.innerHTML = ++triggerCount;
 }, 800);
 btn.addEventListener("click", () => {
   btnPress.innerHTML = ++pressCount;
-  debounceCount();
+  myThrottleCount();
 });
