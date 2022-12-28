@@ -36,3 +36,30 @@ const hello = (a, b) => console.log("hello world", a, b);
 hello();
 hello();
 hello();
+
+//implement caching/memorize
+
+function myMemorize(fn, context) {
+  let result = {};
+  return function (...args) {
+    let argsCache = JSON.stringify(args);
+    if (!result[argsCache]) {
+      result[argsCache] = fn.call(context || this, ...args);
+    }
+    return result[argsCache];
+  };
+}
+
+const clumsyProduct = (num1, num2) => {
+  for (let i = 0; i < 10000; i++) {}
+  return num1 + num2;
+};
+
+const memorizeClumsyProduct = myMemorize(clumsyProduct);
+console.time("first call");
+console.log(memorizeClumsyProduct(3323, 2323));
+console.timeEnd("first call");
+
+console.time("second call");
+console.log(memorizeClumsyProduct(3323, 2323));
+console.timeEnd("second call");
