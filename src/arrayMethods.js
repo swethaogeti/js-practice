@@ -78,3 +78,38 @@ const arrSlicePosStartEnd = arr6.slice(2, 5);
 let email = "john@example.com";
 let localPart = email.slice(0, email.indexOf("@"));
 // console.log(localPart)
+
+//find elements
+
+// indexOf() arr.indexOf(searchElemnt,fromIndex) to find the position of an elemnet in an array , you use the indexOf method thid method returns the index of the first occurence the element that you want to find or -1 if the element is not found
+
+let arr7 = [1, 2, 3, 4, 5, 6, 7, 2, 2, 1, 89];
+let arrIndexOf = arr7.indexOf(5);
+// console.log(arrIndexOf)
+
+//refer
+// console.log(scores.indexOf(20,-1)); // 5 (fromIndex = 6+ (-1) = 5)
+// console.log(scores.indexOf(20,-5)); // 1 (fromIndex = 6+ (-5) = 1)
+
+//the lastIndexOf method returns the index of the lat occurence of the searchElement in the array it returns -1 if it cannot find the element
+let arrLastIndexOf = arr7.lastIndexOf(2);
+// console.log(arrLastIndexOf)
+
+//8. find - es6 introduced a new metho called find(), find() method returns the first element in an array that passes a test function.
+// If the callback returns a truthy value, the find() immediately returns the element and stops searching. Otherwise, it returns undefined.
+//find(callback(element[, index[, array]])[, thisArg])
+let arr8 = [1, 2, 3, 4, 5, 6, 2];
+
+const arrFind = arr8.find((item) => item / 2 === 1);
+// console.log(arrFind)
+
+//findIndex-method returns the index of the element taht satisfies a testing function --1 if o element passed the test
+const arr9 = [1, 2, 3, 4, 5, 6, 7];
+const arrFindIndex = arr9.findIndex((item) => item > 9);
+// console.log(arrFindIndex)
+
+//includes - includes check if the element exist in the array if exists returns true if not false
+
+let arr10 = [12, 3, 4, 5];
+const arrIncludes = arr10.includes(12);
+console.log(arrIncludes);
