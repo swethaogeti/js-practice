@@ -226,9 +226,9 @@ target3.c.d = 444;
 //   setTimeout(()=>console.log(i),i*2000)
 // }
 
-function printArray(...arr) {
-  for (let i = 0; i < arr.length; i++) {
-    setTimeout(() => console.log(arr[i]), i * 1000);
-  }
-}
-printArray(1, 2, 3, 4, 5);
+// function printArray(...arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     setTimeout(() => console.log(arr[i]), i * 1000);
+//   }
+// }
+// printArray(1, 2, 3, 4, 5);

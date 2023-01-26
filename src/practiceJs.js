@@ -178,19 +178,122 @@ function download(url, cb) {
     cb(url);
   }, 1000);
 }
-download(url, process);
+// download(url, process);
 
 const url1 = "https://www.javascripttutorial.net/pic1.jpg";
 const url2 = "https://www.javascripttutorial.net/pic2.jpg";
 const url3 = "https://www.javascripttutorial.net/pic3.jpg";
 
 //nesting many asynchronous functions inside callbacks is known as the pyramid of doom or the callback hell
-download(url1, function (url1) {
-  console.log("prodcess1");
-  download(url2, function (url2) {
-    console.log("process2");
-    download(url3, function (url3) {
-      console.log("process3");
-    });
+// download(url1, function (url1) {
+//   console.log("prodcess1");
+//   download(url2, function (url2) {
+//     console.log("process2");
+//     download(url3, function (url3) {
+//       console.log("process3");
+//     });
+//   });
+// });
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve('resolved');
+
+//   }, 1000);
+// });
+
+// console.log(promise)
+
+//promise.then((data) => console.log(data));
+
+let success = true;
+function getUsers() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (success) {
+        resolve([
+          { username: "john", email: "john@test.com" },
+          { username: "jane", email: "jane@test.com" }
+        ]);
+      } else {
+        reject("failed !! rejected");
+      }
+    }, 1000);
   });
+}
+
+//const promise=getUsers().then(data=>console.log(data),error=>console.log('error'))
+
+const promise = getUsers()
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err))
+  .finally(() => console.log("finally "));
+// console.log(promise)
+
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(10);
+  }, 3 * 100);
 });
+
+// p.then((result) => {
+//   console.log(result);
+//   return result * 2;
+// }).then((result) => {
+//   console.log(result);
+//   return result * 2;
+// });
+
+// const p1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("The first promise has resolved");
+//     resolve(10);
+//   }, 1 * 1000);
+// });
+// const p2 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("The second promise has rejected");
+//     reject("rehjected");
+//   }, 2 * 1000);
+// });
+// const p3 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("The third promise has resolved");
+//     resolve(30);
+//   }, 3 * 1000);
+// });
+
+// Promise.all([p1, p2, p3])
+//   .then((result) => console.log(result)) // never execute
+// //   .catch((err) => console.log(err));
+// function sum(...args) {
+//   let total = 0;
+//   for (const a of args) {
+//     total += a;
+//   }
+//   return total;
+// }
+
+// const nums = [1, 2, 3, 4, 5, 6, 2, 2];
+// console.log(sum(...nums));
+
+// var obj = {
+//   i: 10,
+//   b: function() {console.log(this.i)},
+//   c: function() {
+//     console.log(this.i);
+//   }
+// }
+
+// obj.b();
+// obj.c();
+
+const p1 = new Promise((resolve, reject) => {
+  resolve("resolve promise1");
+});
+const p2 = new Promise((resolve, reject) => {
+  reject("resolve promise2");
+});
+
+Promise.all([p1, p2]).then((result) => console.log(result));
+Promise.allSettled([p1, p2]).then((result) => console.log(result));
