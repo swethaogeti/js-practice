@@ -109,7 +109,100 @@ const arrFindIndex = arr9.findIndex((item) => item > 9);
 // console.log(arrFindIndex)
 
 //includes - includes check if the element exist in the array if exists returns true if not false
+// arr.includes(element,fromIndex)
 
-let arr10 = [12, 3, 4, 5];
-const arrIncludes = arr10.includes(12);
-console.log(arrIncludes);
+let arr10 = [12, 3, 4, 5, 3, 5];
+const arrIncludes = arr10.includes(4, 3);
+// console.log(arrIncludes);
+
+//Higher order functions
+//map=> arr.map(callback(currentElement, index,arr))
+// It’s important to note that the map() method does not change the original array, it creates a new array of all elements that have been transformed by the callback function.
+
+let arr11 = [16, 36, 25];
+const arrMap = arr11.map((ele) => Math.floor(Math.PI * ele * ele));
+//  console.log(arrMap)
+// console.log(arr11.map(Math.sqrt))
+
+// filter- One of the most common tasks when working with an array is to create a new array that contains a subset of elements of the original array.
+
+let arr12 = [
+  { name: "Los Angeles", population: 3792621 },
+  { name: "New York", population: 8175133 },
+  { name: "Chicago", population: 2695598 },
+  { name: "Houston", population: 2099451 },
+  { name: "Philadelphia", population: 1526006 }
+];
+
+const arrFilter = arr12.filter((item) => item.population > 3000000);
+// console.log(arrFilter)
+
+//reduce -  Array reduce() and reduceRight() methods to reduce an array to a value.
+// arr.reduce((previousElement,currentElement,index,array)=>{},intialValue)
+let arr13 = [1, 2, 3, 4, 5];
+
+const arrReduce = arr13.reduce((acc, curr) => acc + curr);
+// console.log(arrReduce)
+
+let shoppingCart = [
+  {
+    product: "phone",
+    qty: 1,
+    price: 500
+  },
+  {
+    product: "Screen Protector",
+    qty: 1,
+    price: 10
+  },
+  {
+    product: "Memory Card",
+    qty: 2,
+    price: 20
+  }
+];
+
+const shoppingtotal = shoppingCart.reduce((acc, curr) => acc + curr.price, 0);
+// console.log(shoppingtotal)
+
+//every() dertermining if alll array elements pass the test
+
+// Returns true if all array elements pass the given test function (callback returns a truthy value).
+
+let arr14 = [2, 3, 4, 5];
+const arrEvery = arr14.every((item) => item > 2);
+// console.log(arrEvery)
+
+let range = {
+  min: 0,
+  max: 10
+};
+let isInRange = arr14.every(function (e) {
+  return e >= this.min && e <= this.max;
+}, range);
+// console.log(isInRange)
+
+//some - check if one at least one array element passes a test
+
+let arr15 = [1, 2, 3, 45];
+const arrSome = arr15.some((ele) => ele > 100);
+// console.log(arrSome);
+
+// forEach - forEach methos to execute a function on every element in an array
+
+let arr16 = [1, 2, 3, 4, 5];
+// arr16.forEach(e=>console.log(e*2))
+
+//sort - The sort() method allows you to sort elements of an array in place. Besides returning the sorted array, the sort() method changes the positions of the elements in the original array.
+
+// By default, the sort() method sorts the array elements in ascending order with
+
+let arr17 = [2, 8, 5, 3, 1, 0];
+// arr17.sort();
+
+arr17.sort(function (a, b) {
+  if (a > b) return 1;
+  if (a < b) return -1;
+  return 0;
+});
+console.log(arr17);
