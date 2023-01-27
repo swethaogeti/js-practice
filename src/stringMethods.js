@@ -47,4 +47,46 @@ const str6 = sentence.endsWith("Carpet.");
 
 const str7 = "JavaScript is a fun programming language programming.";
 const exp = /programming/g;
-console.log(str7.match(exp));
+// console.log(str7.match(exp));
+
+//string - trim() method removes the white spaces from the both ends of the string
+
+const str8 = " sweety    ";
+//console.log(str8.trim())
+
+//string - padStart()- the padStrat method padds the currrent string
+// with another string to the start
+//str.padStart(targtLength,padString)
+let str9 = "code";
+// console.log(str9.padStart(20,'*'))
+
+// string - padEnds method padds the current string with another string to the end
+
+let str10 = "email";
+// console.log(str9.padEnd(10,'*'))
+
+//string- split () method divides a string into a list of substrings and return them as a array
+//str.split(sperator,limit)
+
+let str11 = "javascript";
+// console.log(str11.split(""))
+// console.log(str11.split('',3))
+
+//string substring method returns a specific part of hte string between start and indexs
+let str12 = "javascript is fun";
+let strsubstring = str12.substring(1);
+
+console.log(strsubstring);
+
+function replaceString(oldStr, newStr, str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.substring(i, i + oldStr.length) == oldStr) {
+      str =
+        str.substring(0, i) +
+        newStr +
+        str.substring(i + oldStr.length, str.length);
+    }
+  }
+  return str;
+}
+let str = "this is java tutorial";
