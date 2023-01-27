@@ -205,4 +205,45 @@ arr17.sort(function (a, b) {
   if (a < b) return -1;
   return 0;
 });
-console.log(arr17);
+// console.log(arr17);
+
+//concat -() Merge - to merge two or more arrays . concat() method of an aRray object . the concat() method returns a new array and doesn't change the original array
+
+let arr18 = [1, 2, 3, 4, 56];
+let evens = [2, 4, 6, 8];
+let combined = arr18.concat(evens);
+// console.log(combined)
+// console.log(arr18)
+
+let odds = [1, 3, 5, 6];
+let numbers = arr18.concat(evens, odds);
+// console.log(numbers)
+
+// When you don’t pass any argument into the concat() method, it simply clones the array and returns it:
+
+let cloneConcat = arr18.concat();
+// console.log(cloneConcat)
+// let moreColors = rgb.concat('yellow','magento');
+
+// console.log(cloneConcat);
+// console.log(arr18)
+
+// Array.from() - the from() method creates a new array from array -like or iterable object
+//Array.from(arraylike,mapFunc,thisArg)
+let arr19 = Array.from("sweety");
+// console.log(arr19);
+//function that returns a new array
+let arrFrom = Array.from([1, 2, 3, 4, 5], (ele) => ele * 2);
+// console.log(arrFrom);
+
+//flat methods creates a new array by flattening a nested array up to the spefified depth
+
+let arr20 = [1, , 2, [3, 4, [5, 6, [7, , 8]]]];
+let flatteningArray = arr20.flat(3);
+// console.log(flatteningArray);
+
+//join the join method returns a new string by concatenating all of the element in an array separated by a specified sparator
+//arr.join(separator)
+let arr21 = ["jascript", "is", "fun"];
+let arrJoin = arr21.join("|");
+console.log(arrJoin);
