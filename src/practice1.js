@@ -126,7 +126,7 @@ async function main() {
     });
     console.log(validData);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 }
 main();
