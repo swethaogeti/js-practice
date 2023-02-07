@@ -197,7 +197,7 @@ const source = {
   }
 };
 const target4 = copyObject(source);
-target4.c.d = 2331;
+target4.c.d = 23351;
 // console.log(source, "deep copy");
 function copyObject(source) {
   return JSON.parse(JSON.stringify(source));
